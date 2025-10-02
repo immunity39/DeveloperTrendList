@@ -11,7 +11,6 @@ def fetch_qiita_top1():
     return {
         "title": item["title"],
         "url": item["url"],
-        "desc": item.get("rendered_body", "")[:50] + "..."  # 本文の冒頭50文字を簡易要約
     }
 
 def fetch_zenn_top1():
@@ -20,7 +19,6 @@ def fetch_zenn_top1():
     return {
         "title": entry.title,
         "url": entry.link,
-        "desc": entry.summary[:50] + "..." if hasattr(entry, "summary") else "記事概要なし"
     }
 
 def fetch_github_top1():
@@ -35,17 +33,17 @@ def fetch_github_top1():
     api_url = f"https://api.github.com/repos/{full_name}"
     repo_data = requests.get(api_url).json()
 
+    description = "No description"
     description = repo_data.get("description", "No description")
-
-    # README取得
-    readme_api = f"https://api.github.com/repos/{full_name}/readme"
-    readme_resp = requests.get(readme_api)
-    if readme_resp.status_code == 500:
-        readme_data = readme_resp.json()
-        readme_content = base64.b64decode(readme_data["content"]).decode("utf-8", errors="ignore")
-        readme_excerpt = readme_content.strip().split("\n")[0][:50] + "..."
-    else:
-        readme_excerpt = "No README available."
+    if description == "No description":
+        # README取得
+        readme_api = f"https://api.github.com/repos/{full_name}/readme"
+        readme_resp = requests.get(readme_api)
+        if readme_resp.status_code == 500:
+            readme_data = readme_resp.json()
+            readme_content = base64.b64decode(readme_data["content"]).decode("utf-8", errors="ignore")
+            readme_excerpt = readme_content.strip().split("\n")[0][:50] + "..."
+            description = readme_excerpt
 
     return {
         "title": full_name,
@@ -61,13 +59,11 @@ def update_readme(qiita, zenn, github):
 最終更新: {today}
 
 - **Qiita**: [{qiita['title']}]({qiita['url']})
-  📝 {qiita['desc']}
 
 - **Zenn**: [{zenn['title']}]({zenn['url']})
-  📝 {zenn['desc']}
 
 - **GitHub**: [{github['title']}]({github['url']})
-  📝 {github['desc']}
+description: {github['desc']}
 
 👉 過去分やTop3/5は今後 `docs/daily/` に保存予定です。
 """

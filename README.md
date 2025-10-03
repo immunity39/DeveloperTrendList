@@ -1,18 +1,16 @@
 # 今日のエンジニア記事トレンド
 
-最終更新: 2025-10-01
+最終更新: 2025-10-02
 
-- **Qiita**: [【招待コードあり】Veo3超え？！Sora2使ってみた！無料で使える！次世代AI動画生成の未来](https://qiita.com/nanato12/items/d199738dde6ae616ed1c)
-  📝 
-<h2 data-sourcepos="3:1-3:9">
-<span id="追記" class...
+- **Qiita**: [コマンド不要！GUIだけで構築するDifyセルフホスト環境 on OCI](https://qiita.com/yushibats/items/c1e3fddfcb8ec49d5059)
+  📝 <h2 data-sourcepos="2:1-2:15">
+<span id="はじめに" cla...
 
-- **Zenn**: [物体検出モデルの推論高速化入門](https://zenn.dev/eversteel_tech/articles/51f9b749b8f051)
-  📝 はじめに
-株式会社EVERSTEELで機械学習エンジニアをしている加藤です。
-機械学習システムの運用...
+- **Zenn**: [ターミナル派待望の GitHub Copilot CLI 使い方まとめ](https://zenn.dev/10q89s/articles/4a42fb779fde89)
+  📝 こんにちは、URBAN HACKS サーバーサイドエンジニアの池田です。
+2025/9/25に Gi...
 
-- **GitHub**: [nextcloud /server](https://github.com/nextcloud/server)
+- **GitHub**: [hsliuping /TradingAgents-CN](https://github.com/hsliuping/TradingAgents-CN)
   📝 No description
 
 👉 過去分やTop3/5は今後 `docs/daily/` に保存予定です。

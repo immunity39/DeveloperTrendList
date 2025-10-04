@@ -1,16 +1,12 @@
 # 今日のエンジニア記事トレンド
 
-最終更新: 2025-10-02
+最終更新: 2025-10-03
 
-- **Qiita**: [コマンド不要！GUIだけで構築するDifyセルフホスト環境 on OCI](https://qiita.com/yushibats/items/c1e3fddfcb8ec49d5059)
-  📝 <h2 data-sourcepos="2:1-2:15">
-<span id="はじめに" cla...
+- **Qiita**: [Sora 2のウォーターマークロゴを消す方法【無料】Video Watermark Remover](https://qiita.com/7mpy/items/9bf1d9bf90e583f8611d)
 
-- **Zenn**: [ターミナル派待望の GitHub Copilot CLI 使い方まとめ](https://zenn.dev/10q89s/articles/4a42fb779fde89)
-  📝 こんにちは、URBAN HACKS サーバーサイドエンジニアの池田です。
-2025/9/25に Gi...
+- **Zenn**: [AIはどこまでテストができるのか？AIテストエージェントの現在地と課題](https://zenn.dev/ubie_dev/articles/dc6a0d8f74fd76)
 
 - **GitHub**: [hsliuping /TradingAgents-CN](https://github.com/hsliuping/TradingAgents-CN)
-  📝 No description
+description: No description
 
 👉 過去分やTop3/5は今後 `docs/daily/` に保存予定です。

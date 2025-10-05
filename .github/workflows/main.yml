@@ -63,7 +63,7 @@ jobs:
           python-version: "3.10"
       - run: pip install requests beautifulsoup4 feedparser
       - name: Run weekly update
-        run: python scripts/update_weekly.py
+        run: python scripts/weekly.py
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"
@@ -86,7 +86,7 @@ jobs:
           python-version: "3.10"
       - run: pip install requests beautifulsoup4 feedparser
       - name: Run monthly update
-        run: python scripts/update_monthly.py
+        run: python scripts/monthly.py
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"
@@ -109,7 +109,7 @@ jobs:
           python-version: "3.10"
       - run: pip install requests beautifulsoup4 feedparser
       - name: Run yearly update
-        run: python scripts/update_yearly.py
+        run: python scripts/yearly.py
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"

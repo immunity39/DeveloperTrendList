@@ -5,9 +5,9 @@
 ## Qiita (Top 5)
 - [Amplify Hosting を CloudFormation で展開しようとしてハマった話](https://qiita.com/h0uk1st4r/items/e2124f2f254007934631)
 - [「世界の一流は『休日』に何をしているのか」を読んだ](https://qiita.com/e99h2121/items/4101286762b9ad9fec03)
+- [🚀 ChatGPT×Notionで自己分析を効率化！](https://qiita.com/apptest/items/1ecc4dde54b31ea1663f)
 - [【k8s】永続的なストレージを PV/PVC 経由で Pod にマウントし、データを保持する](https://qiita.com/tiga-ga/items/56a9f75d5fb38082ba13)
 - [R4 秋2-2](https://qiita.com/yna020311/items/73afc3eaf75d0ed9f3ee)
-- [[c++] ABC049 #AtCoder](https://qiita.com/Hiyoni/items/8527e75a45fd59a8a1bf)
 
 ## Zenn (Top {len(zenn)})
 - [testing/synctestはGoランタイムの世界を改変していた](https://zenn.dev/yuta_kakiki/articles/9ec93623cfdc81)

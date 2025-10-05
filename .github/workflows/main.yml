@@ -7,6 +7,11 @@ on:
         - cron: "30 15 1 * *" # 月次: 毎月1日 日本時間 24:30
         - cron: "30 15 1 1 *" # 年次: 毎年1月1日 日本時間 24:30
     workflow_dispatch: # 手動実行も可能
+      inputs:
+        target:
+          description: 'Specify the target to update (daily, weekly, monthly, yearly)'
+          required: false
+          default: 'daily'
 
 permissions:
     contents: write

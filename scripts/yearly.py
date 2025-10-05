@@ -2,6 +2,7 @@ import datetime
 import os
 import json
 from collections import defaultdict
+from pathlib import Path
 
 def aggregate_yearly(service, top_n=25):
     base_dir = f"data/{service}_monthly"
@@ -39,8 +40,8 @@ def save_yearly(qiita, zenn, github, year=None):
     content += "\n".join([f"- [{x['title']}]({x['url']})\n  - {x.get('desc','')}" for x in github]) + "\n"
 
     output_dir_docs = Path("docs")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with open(out_dir_docs / "YEARLY.md", "w", encoding="utf-8") as f:
+    output_dir_docs.mkdir(parents=True, exist_ok=True)
+    with open(output_dir_docs / "YEARLY.md", "w", encoding="utf-8") as f:
         f.write(content)
 
 if __name__ == "__main__":

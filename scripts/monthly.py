@@ -2,6 +2,7 @@ import requests
 import feedparser
 import datetime
 from bs4 import BeautifulSoup
+from pathlib import Path
 
 def fetch_qiita_monthly(top_n=10):
     today = datetime.datetime.utcnow()
@@ -58,8 +59,8 @@ def update_readme(qiita, zenn, github):
 """ + "\n".join([f"- [{x['title']}]({x['url']})\n  - {x['desc']}" for x in github]) + """
 """
     output_dir_docs = Path("docs")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with open(out_dir_docs / "MONTHLY.md", "w", encoding="utf-8") as f:
+    output_dir_docs.mkdir(parents=True, exist_ok=True)
+    with open(output_dir_docs / "MONTHLY.md", "w", encoding="utf-8") as f:
         f.write(content)
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # 今日のエンジニア記事トレンド
 
-最終更新: 2025-10-04
+最終更新: 2025-10-05
 
 - **Qiita**: [AWSでAIエージェント構築に入門！ StrandsをAgentCoreにデプロイしてみよう](https://qiita.com/minorun365/items/deb10c8e7a6b1219e595)
 

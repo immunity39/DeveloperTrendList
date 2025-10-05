@@ -61,7 +61,10 @@ def update_readme(qiita, zenn, github):
 ## GitHub Trending (Top {len(github)})
 """ + "\n".join([f"- [{x['title']}]({x['url']})\n  - {x['desc']}" for x in github]) + """
 """
-    with open("WEEKLY.md", "w", encoding="utf-8") as f:
+
+    output_dir_docs = Path("docs")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    with open(out_dir_docs / "WEEKLY.md", "w", encoding="utf-8") as f:
         f.write(content)
 
 if __name__ == "__main__":

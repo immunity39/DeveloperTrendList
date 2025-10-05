@@ -1,12 +1,12 @@
 # 今日のエンジニア記事トレンド
 
-最終更新: 2025-10-03
+最終更新: 2025-10-04
 
-- **Qiita**: [Sora 2のウォーターマークロゴを消す方法【無料】Video Watermark Remover【招待コードはコメントに記載】invite code](https://qiita.com/7mpy/items/9bf1d9bf90e583f8611d)
+- **Qiita**: [AWSでAIエージェント構築に入門！ StrandsをAgentCoreにデプロイしてみよう](https://qiita.com/minorun365/items/deb10c8e7a6b1219e595)
 
-- **Zenn**: [J-RAGBench：日本企業でRAGするときの落とし穴とは](https://zenn.dev/neoai/articles/0998f81c39a583)
+- **Zenn**: [testing/synctestはGoランタイムの世界を改変していた](https://zenn.dev/yuta_kakiki/articles/9ec93623cfdc81)
 
-- **GitHub**: [juspay /hyperswitch](https://github.com/juspay/hyperswitch)
+- **GitHub**: [microsoft /BitNet](https://github.com/microsoft/BitNet)
 description: No description
 
 👉 過去分やTop3/5は今後 `docs/daily/` に保存予定です。

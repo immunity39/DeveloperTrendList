@@ -38,9 +38,10 @@ def save_yearly(qiita, zenn, github, year=None):
     content += "## GitHub Trending\n"
     content += "\n".join([f"- [{x['title']}]({x['url']})\n  - {x.get('desc','')}" for x in github]) + "\n"
 
-    with open(path, "w", encoding="utf-8") as f:
+    output_dir_docs = Path("docs")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    with open(out_dir_docs / "YEARLY.md", "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"Saved yearly ranking to {path}")
 
 if __name__ == "__main__":
     qiita = aggregate_yearly("qiita")

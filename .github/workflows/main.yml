@@ -44,6 +44,7 @@ jobs:
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"
+          git pull
           git add README.md
           git commit -m "Daily update" || echo "No changes"
           git push
@@ -67,6 +68,7 @@ jobs:
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"
+          git pull
           git add docs/WEEKLY.md
           git commit -m "Weekly update" || echo "No changes"
           git push
@@ -90,6 +92,7 @@ jobs:
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"
+          git pull
           git add docs/MONTHLY.md
           git commit -m "Monthly update" || echo "No changes"
           git push
@@ -113,6 +116,7 @@ jobs:
       - run: |
           git config --local user.email "so_kaicyo@icloud.com"
           git config --local user.name "immunity39"
+          git pull
           git add docs/YEARLY.md
           git commit -m "Yearly update" || echo "No changes"
           git push

@@ -11,6 +11,12 @@ on:
         target:
           description: 'Specify the target to update (daily, weekly, monthly, yearly)'
           required: false
+          type: choice
+          options:
+            - daily
+            - weekly
+            - monthly
+            - yearly
           default: 'daily'
 
 permissions:

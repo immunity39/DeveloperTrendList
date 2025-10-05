@@ -10,7 +10,7 @@ on:
     inputs:
       target:
         description: 'Select update target'
-        required: false
+        required: true
         type: choice
         options:
           - daily
@@ -26,11 +26,10 @@ permissions:
 jobs:
   daily:
     if: >
-      github.event_name == 'workflow_dispatch' &&
-      (github.event.inputs.target == 'daily' ||
-       github.event.inputs.target == 'all' ||
-       github.event.inputs.target == '' ) ||
-      github.event.schedule == '30 15 * * *'
+      (github.event_name == 'workflow_dispatch' &&
+       (github.event.inputs.target == 'daily')) ||
+      (github.event_name == 'schedule' &&
+       startsWith(github.event.schedule.cron, '30 15 * * *'))
     runs-on: ubuntu-latest
     timeout-minutes: 100
     steps:
@@ -52,9 +51,9 @@ jobs:
   weekly:
     if: >
       (github.event_name == 'workflow_dispatch' &&
-       (github.event.inputs.target == 'weekly' || github.event.inputs.target == 'all')) ||
-      github.event.schedule == '30 15 * * 1'
-    needs: [daily]
+       (github.event.inputs.target == 'weekly')) ||
+      (github.event_name == 'schedule' &&
+       startsWith(github.event.schedule.cron, '30 15 * * 1'))
     runs-on: ubuntu-latest
     timeout-minutes: 100
     steps:
@@ -76,9 +75,9 @@ jobs:
   monthly:
     if: >
       (github.event_name == 'workflow_dispatch' &&
-       (github.event.inputs.target == 'monthly' || github.event.inputs.target == 'all')) ||
-      github.event.schedule == '30 15 1 * *'
-    needs: [weekly]
+       (github.event.inputs.target == 'monthly')) ||
+      (github.event_name == 'schedule' &&
+       startsWith(github.event.schedule.cron, '30 15 1 * *'))
     runs-on: ubuntu-latest
     timeout-minutes: 100
     steps:
@@ -100,9 +99,9 @@ jobs:
   yearly:
     if: >
       (github.event_name == 'workflow_dispatch' &&
-       (github.event.inputs.target == 'yearly' || github.event.inputs.target == 'all')) ||
-      github.event.schedule == '30 15 1 1 *'
-    needs: [monthly]
+       (github.event.inputs.target == 'yearly')) ||
+      (github.event_name == 'schedule' &&
+       startsWith(github.event.schedule.cron, '30 15 1 1 *'))
     runs-on: ubuntu-latest
     timeout-minutes: 100
     steps:
@@ -120,3 +119,12 @@ jobs:
           git add docs/YEARLY.md
           git commit -m "Yearly update" || echo "No changes"
           git push
+
+  all:
+    if: >
+      github.event_name == 'workflow_dispatch' &&
+      github.event.inputs.target == 'all'
+    needs: [daily, weekly, monthly, yearly]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "All updates completed"

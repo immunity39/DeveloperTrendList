@@ -3,11 +3,11 @@
 集計日: 2025-10-05
 
 ## Qiita (Top 5)
-- [Amplify Hosting を CloudFormation で展開しようとしてハマった話](https://qiita.com/h0uk1st4r/items/e2124f2f254007934631)
 - [「世界の一流は『休日』に何をしているのか」を読んだ](https://qiita.com/e99h2121/items/4101286762b9ad9fec03)
-- [🚀 ChatGPT×Notionで自己分析を効率化！](https://qiita.com/apptest/items/1ecc4dde54b31ea1663f)
-- [【k8s】永続的なストレージを PV/PVC 経由で Pod にマウントし、データを保持する](https://qiita.com/tiga-ga/items/56a9f75d5fb38082ba13)
-- [R4 秋2-2](https://qiita.com/yna020311/items/73afc3eaf75d0ed9f3ee)
+- [paizaラーニングレベルアップ問題集の「クラス」をやってみた (2)](https://qiita.com/anonymously115/items/c8aee33111d41d747f74)
+- [Astro と バニラJS という選択肢 - React, Vue を使わない](https://qiita.com/ahya_emon/items/2e299e9c84694c3ed275)
+- [[c++] ABC048 #AtCoder](https://qiita.com/Hiyoni/items/3b4262f4a9102aa85cac)
+- [SRE文脈における暗黙的ECRS原則の適用](https://qiita.com/Kudo_panda/items/5ec4c9d0ce1c11d9f311)
 
 ## Zenn (Top {len(zenn)})
 - [testing/synctestはGoランタイムの世界を改変していた](https://zenn.dev/yuta_kakiki/articles/9ec93623cfdc81)

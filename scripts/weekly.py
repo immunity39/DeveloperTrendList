@@ -2,6 +2,7 @@ import requests
 import feedparser
 import datetime
 from bs4 import BeautifulSoup
+from pathlib import Path
 
 # Qiita
 def fetch_qiita_weekly(top_n=5):
@@ -63,8 +64,8 @@ def update_readme(qiita, zenn, github):
 """
 
     output_dir_docs = Path("docs")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with open(out_dir_docs / "WEEKLY.md", "w", encoding="utf-8") as f:
+    output_dir_docs.mkdir(parents=True, exist_ok=True)
+    with open(output_dir_docs / "WEEKLY.md", "w", encoding="utf-8") as f:
         f.write(content)
 
 if __name__ == "__main__":

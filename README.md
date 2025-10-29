@@ -1,12 +1,12 @@
 # 今日のエンジニア記事トレンド
 
-最終更新: 2025-10-04
+最終更新: 2025-10-28
 
-- **Qiita**: [AWSでAIエージェント構築に入門！ StrandsをAgentCoreにデプロイしてみよう](https://qiita.com/minorun365/items/deb10c8e7a6b1219e595)
+- **Qiita**: [VSCodeが重い！メモリ使用量を1/3にする設定まとめ](https://qiita.com/nolanlover0527/items/071277263f8851012e6b)
 
-- **Zenn**: [testing/synctestはGoランタイムの世界を改変していた](https://zenn.dev/yuta_kakiki/articles/9ec93623cfdc81)
+- **Zenn**: [AI エージェント時代のリスク対策 : 認証・認可をあらためて学ぶ](https://zenn.dev/aws_japan/articles/f1a0549c8e533a)
 
-- **GitHub**: [microsoft /BitNet](https://github.com/microsoft/BitNet)
+- **GitHub**: [smartcontractkit /chainlink](https://github.com/smartcontractkit/chainlink)
 description: No description
 
 👉 過去分やTop3/5は今後 `docs/daily/` に保存予定です。

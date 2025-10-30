@@ -50,7 +50,7 @@ def update_readme(qiita, zenn, github):
 集計日: {today}
 
 ## Qiita (Top {len(qiita)})
-""" + "\n".join([f"- [{x['title']}]({x['url']})" for x in qiita]) + """
+
 
 ## Zenn (Top {len(zenn)})
 """ + "\n".join([f"- [{x['title']}]({x['url']})" for x in zenn]) + """

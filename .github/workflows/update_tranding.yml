@@ -1,0 +1,114 @@
+name: Update Trending
+
+on:
+  schedule:
+    - cron: "30 15 * * *"  # 日次: JST 24:30 = UTC 15:30
+    - cron: "30 15 * * 1"  # 週次: 毎週月曜 JST 24:30
+    - cron: "30 15 1 * *"  # 月次: 毎月1日 JST 24:30
+    - cron: "30 15 1 1 *"  # 年次: 毎年1月1日 JST 24:30
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Select update target'
+        required: false
+        type: choice
+        options:
+          - daily
+          - weekly
+          - monthly
+          - yearly
+          - all
+        default: 'daily'
+
+permissions:
+  contents: write
+
+jobs:
+  daily:
+    if: >
+      (github.event_name == 'workflow_dispatch' &&
+       (github.event.inputs.target == 'daily' ||
+        github.event.inputs.target == 'all' ||
+        github.event.inputs.target == '' )) ||
+      (github.event_name == 'schedule')
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: pip install requests beautifulsoup4 feedparser
+      - name: Run daily update (may trigger monthly/yearly)
+        run: python scripts/update_readme.py
+      - name: Commit generated files (README + monthly/yearly if any)
+        run: |
+          git config --local user.email "so_kaicyo@icloud.com"
+          git config --local user.name "immunity39"
+          git add README.md docs/monthly/ docs/yearly/ || true
+          git commit -m "Daily update (incl. monthly/yearly if any)" || echo "No changes"
+          git push || echo "Push failed"
+
+  weekly:
+    if: >
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.target == 'weekly') ||
+      (github.event_name == 'schedule' && false) # keep cron entry but we rely on monthly/yearly via daily; set false to avoid double-run if you want
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: pip install requests beautifulsoup4 feedparser
+      - name: Run weekly update (manual)
+        run: python scripts/update_weekly.py
+      - name: Commit weekly pages
+        run: |
+          git config --local user.email "so_kaicyo@icloud.com"
+          git config --local user.name "immunity39"
+          git add docs/weekly/ || true
+          git commit -m "Weekly update" || echo "No changes"
+          git push || echo "Push failed"
+
+  monthly:
+    if: >
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.target == 'monthly') ||
+      (github.event_name == 'schedule' && false) # optional: keep false if you prefer daily to trigger monthly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: pip install requests beautifulsoup4 feedparser
+      - name: Run monthly update (manual)
+        run: python scripts/update_monthly.py
+      - name: Commit monthly pages
+        run: |
+          git config --local user.email "so_kaicyo@icloud.com"
+          git config --local user.name "immunity39"
+          git add docs/monthly/ || true
+          git commit -m "Monthly update" || echo "No changes"
+          git push || echo "Push failed"
+
+  yearly:
+    if: >
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.target == 'yearly') ||
+      (github.event_name == 'schedule' && false) # optional: keep false if you prefer daily to trigger yearly
+    needs: [monthly]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: pip install requests beautifulsoup4 feedparser
+      - name: Run yearly update (manual)
+        run: python scripts/update_yearly.py
+      - name: Commit yearly pages
+        run: |
+          git config --local user.email "so_kaicyo@icloud.com"
+          git config --local user.name "immunity39"
+          git add docs/yearly/ || true
+          git commit -m "Yearly update" || echo "No changes"
+          git push || echo "Push failed"
